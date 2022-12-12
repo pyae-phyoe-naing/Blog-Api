@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Helpers\ResponseHelper;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('test',function(){
-  return 'hello';
+  return ResponseHelper::fail('user not found');
 });
