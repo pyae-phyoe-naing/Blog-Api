@@ -1,6 +1,6 @@
 <?php
 
-use App\Helpers\ResponseHelper;
+use App\Http\Controllers\Api\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('test',function(){
-  return ResponseHelper::fail('user not found');
-});
+Route::post('/register',[AuthController::class,'register']);
