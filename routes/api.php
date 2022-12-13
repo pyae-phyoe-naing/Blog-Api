@@ -27,7 +27,8 @@ Route::middleware(['auth:api'])->group(function () {
      Route::get('/categories', [CategoryController::class, 'index']);
 
      // Post
-     Route::post('/post',[PostController::class,'create']);
+     Route::get('/post', [PostController::class, 'index']);
+     Route::post('/post', [PostController::class, 'create']);
 
      // Logout
      Route::post('/logout', [AuthController::class, 'logout']);
