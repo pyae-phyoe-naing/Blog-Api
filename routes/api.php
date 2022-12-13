@@ -29,6 +29,7 @@ Route::middleware(['auth:api'])->group(function () {
      // Post
      Route::get('/post', [PostController::class, 'index']);
      Route::post('/post', [PostController::class, 'create']);
+     Route::get('/post/{id}',[PostController::class,'show']);
 
      // Logout
      Route::post('/logout', [AuthController::class, 'logout']);

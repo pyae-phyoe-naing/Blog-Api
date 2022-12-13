@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Helpers\ResponseHelper;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\PostDetailResource;
 use App\Http\Resources\PostResource;
 use Illuminate\Support\Facades\Storage;
 
@@ -78,5 +79,10 @@ class PostController extends Controller
             DB::rollBack();
             return ResponseHelper::fail($e->getMessage());
         }
+    }
+
+    public function show( $id){
+        $post = Post::where('id',$id)->firstOrFail();
+        return ResponseHelper::success(new PostDetailResource($post));
     }
 }
