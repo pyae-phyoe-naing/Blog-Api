@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,5 +26,9 @@ Route::middleware(['auth:api'])->group(function () {
      // Category
      Route::get('/categories', [CategoryController::class, 'index']);
 
+     // Post
+     Route::post('/post',[PostController::class,'create']);
+
+     // Logout
      Route::post('/logout', [AuthController::class, 'logout']);
 });
