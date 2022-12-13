@@ -20,4 +20,6 @@ Route::post('/login',[AuthController::class,'login']);
 
 Route::middleware(['auth:api'])->group(function(){
      Route::get('/profile',[ProfileController::class,'profile']);
+
+     Route::post('/logout',[AuthController::class,'logout']);
 });

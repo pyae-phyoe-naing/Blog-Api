@@ -51,4 +51,11 @@ class AuthController extends Controller
         }
         return ResponseHelper::fail('Credential Error');
     }
+
+    // Logout
+
+    public function logout(){
+        auth()->user()->token()->revoke();
+        return ResponseHelper::success([],'Successfully logout.');
+    }
 }
