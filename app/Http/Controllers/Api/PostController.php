@@ -17,7 +17,7 @@ class PostController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Post::orderByDesc('created_at');
+        $query = Post::with('user', 'category', 'image')->orderByDesc('created_at');
         if ($request->category_id) {
             $query->where('category_id', $request->category_id);
         }
@@ -82,7 +82,7 @@ class PostController extends Controller
     }
 
     public function show( $id){
-        $post = Post::where('id',$id)->firstOrFail();
+        $post = Post::with('user', 'category', 'image')->where('id',$id)->firstOrFail();
         return ResponseHelper::success(new PostDetailResource($post));
     }
 }

@@ -22,7 +22,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware(['auth:api'])->group(function () {
      Route::get('/profile', [ProfileController::class, 'profile']);
-
+     Route::get('profile-posts',[ProfileController::class,'posts']);
      // Category
      Route::get('/categories', [CategoryController::class, 'index']);
 
